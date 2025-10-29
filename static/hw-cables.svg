@@ -1,0 +1,7 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0b1321"/>
+  <path d="M60,180 C160,120 220,240 320,180 C420,120 480,240 580,180" stroke="#22d3ee" stroke-width="6" fill="none"/>
+  <rect x="280" y="160" width="80" height="40" rx="6" fill="#0ea5e9"/>
+  <rect x="420" y="160" width="80" height="40" rx="6" fill="#22c55e"/>
+  <text x="320" y="230" text-anchor="middle" fill="#e5e7eb" font-family="Arial" font-size="14">HDMI / Ethernet / USB-C</text>
+</svg>

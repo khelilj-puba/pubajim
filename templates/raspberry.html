@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}PUBAJIM — Comment ça marche (matériel){% endblock %}
+{% block body %}
+
+<!-- HERO animé -->
+<section class="hero-banner parallax">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">Comment ça marche</div>
+      <h1 class="hero-title">Le matériel PUBAJIM, <br>simple, fiable et prêt à l’emploi</h1>
+      <p class="hero-sub">Un Raspberry Pi pilote vos écrans. Mises à jour locales ou distantes, puis c’est parti.</p>
+      <div class="hero-badges">
+        <span class="hero-badge">HDMI</span>
+        <span class="hero-badge">Wi-Fi / Ethernet</span>
+        <span class="hero-badge">Démarrage auto</span>
+        <span class="hero-badge">VPN possible</span>
+      </div>
+      <div class="hero-cta" style="margin-top:14px">
+        <a href="{{ url_for('ecrans') }}" class="btn primary">Voir les écrans</a>
+        <a href="{{ url_for('contact', subject='Question technique', message='Bonjour, je souhaite des infos techniques sur le matériel PUBAJIM.') }}" class="btn">Nous contacter</a>
+      </div>
+    </div>
+    <div class="center">
+      <img src="{{ url_for('static', filename='raspberry-diagram.svg') }}" class="hero-illu" alt="Schéma Raspberry" style="max-width:460px;width:100%;height:auto">
+    </div>
+  </div>
+</section>
+
+<!-- Section 1 -->
+<section class="section container reveal">
+  <h2 class="section-title">Le kit matériel</h2>
+  <p>Le <strong>Raspberry Pi</strong> gère le contenu et l’affichage. Voici les éléments principaux du kit.</p>
+  <div class="gallery" style="margin-top:12px">
+    <figure class="card">
+      <img src="{{ url_for('static', filename='hw-board.svg') }}" alt="Carte Raspberry Pi" style="width:100%;height:auto">
+      <figcaption>Carte Raspberry Pi (CPU, RAM, connectique).</figcaption>
+    </figure>
+    <figure class="card">
+      <img src="{{ url_for('static', filename='hw-case.svg') }}" alt="Boîtier ventilé" style="width:100%;height:auto">
+      <figcaption>Boîtier ventilé pour stabilité et longévité.</figcaption>
+    </figure>
+    <figure class="card">
+      <img src="{{ url_for('static', filename='hw-cables.svg') }}" alt="Câbles HDMI / Ethernet / Alim" style="width:100%;height:auto">
+      <figcaption>Câbles HDMI, Ethernet/Wi-Fi, alimentation 5V USB-C.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Section 2 -->
+<section class="section container reveal">
+  <h2 class="section-title">Écran & installation</h2>
+  <div class="grid grid-2" style="align-items:center">
+    <figure class="card">
+      <img src="{{ url_for('static', filename='hw-display.svg') }}" alt="Écran d'affichage" style="width:100%;height:auto">
+      <figcaption>Écrans génériques (32/43/55/65”) selon visibilité et recul.</figcaption>
+    </figure>
+    <figure class="card">
+      <img src="{{ url_for('static', filename='hw-mount.svg') }}" alt="Fixation / VESA" style="width:100%;height:auto">
+      <figcaption>Fixation VESA murale ou sur pied. Passage de câbles discret.</figcaption>
+    </figure>
+  </div>
+
+  <div class="callout" style="margin-top:16px">
+    <strong>Astuce :</strong> pour les vitrines lumineuses, privilégiez une dalle &gt; 700 nits.
+  </div>
+</section>
+
+<!-- Section 3 -->
+<section class="section container reveal">
+  <h2 class="section-title">Remplacer par des photos réelles</h2>
+  <p>Les visuels ci-dessus sont des <em>SVG génériques</em> sans marque. Remplacez-les par vos photos en gardant le même nom de fichier dans <code>static/</code> : <code>hw-board.svg</code>, <code>hw-case.svg</code>, <code>hw-cables.svg</code>, <code>hw-display.svg</code>, <code>hw-mount.svg</code>.</p>
+  <p class="small">Astuce : utilisez des images libres (Unsplash/Pexels) ou vos propres photos.</p>
+</section>
+
+
+<!-- Section 2.5 : Photos réelles -->
+<section class="section container reveal">
+  <h2 class="section-title">Galerie — Photos réelles</h2>
+  <p>Voici des photos d’illustration du matériel. Si un fichier est manquant dans <code>static/</code>, un visuel SVG générique est affiché à la place.</p>
+  <div class="photo-grid">
+    {% for p in photos %}
+    <figure class="card">
+      {% set try = url_for('static', filename=p.file) %}
+      <img src="{{ try }}" alt="{{ p.caption }}" onerror="this.onerror=null;this.src='{{ url_for('static', filename=p.fallback) }}';" style="width:100%;height:auto">
+      <figcaption class="small">{{ p.caption }}</figcaption>
+    </figure>
+    {% endfor %}
+  </div>
+</section>
+
+
+<!-- JS: apparition au scroll -->
+<script>
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold:.15 });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+{% endblock %}

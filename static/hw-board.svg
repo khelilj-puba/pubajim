@@ -1,0 +1,11 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0b1321"/>
+  <rect x="40" y="40" width="560" height="280" rx="12" fill="#0e7490" stroke="#67e8f9" stroke-width="3"/>
+  <circle cx="120" cy="120" r="36" fill="#94a3b8"/>
+  <rect x="200" y="100" width="140" height="60" rx="8" fill="#38bdf8"/>
+  <rect x="380" y="100" width="80" height="60" rx="8" fill="#06b6d4"/>
+  <rect x="200" y="200" width="260" height="40" rx="8" fill="#22d3ee"/>
+  <text x="320" y="250" text-anchor="middle" fill="#ecfeff" font-family="Arial" font-size="16">micro-SD / stockage</text>
+  <text x="270" y="137" text-anchor="middle" fill="#e2e8f0" font-family="Arial" font-size="14">CPU</text>
+  <text x="420" y="137" text-anchor="middle" fill="#e2e8f0" font-family="Arial" font-size="14">RAM</text>
+</svg>

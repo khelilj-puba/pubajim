@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}PUBAJIM — Offres & tarifs{% endblock %}
+{% block body %}
+<section class="section container pricing">
+  <h1>Offres & tarifs</h1>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>Essai 1 mois</h3>
+      <div class="price">59,99 €</div>
+      <ul class="clean">
+        <li>Interface de gestion</li>
+        <li>Support de démarrage</li>
+        <li>1 écran</li>
+      </ul>
+      <a class="btn primary" href="{{ url_for('product') }}">Commander</a>
+    </div>
+    <div class="card">
+      <h3>Location</h3>
+      <div class="price">à partir de 39 €/mois</div>
+      <ul class="clean">
+        <li>Mises à jour à distance</li>
+        <li>Maintenance incluse</li>
+        <li>Multi-écrans</li>
+      </ul>
+      <a class="btn" href="{{ url_for('contact') }}">Demander un devis</a>
+    </div>
+    <div class="card">
+      <h3>Achat</h3>
+      <div class="price">Sur mesure</div>
+      <ul class="clean">
+        <li>Matériel + installation</li>
+        <li>Formation incluse</li>
+        <li>Support 12 mois</li>
+      </ul>
+      <a class="btn" href="{{ url_for('contact') }}">Demander un devis</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

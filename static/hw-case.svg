@@ -1,0 +1,13 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#1f2937"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" rx="16" fill="#0b1321"/>
+  <rect x="70" y="90" width="500" height="180" rx="24" fill="url(#g)" stroke="#4b5563" stroke-width="3"/>
+  <rect x="100" y="120" width="140" height="30" rx="6" fill="#0ea5e9"/>
+  <rect x="100" y="170" width="80" height="30" rx="6" fill="#22c55e"/>
+  <rect x="220" y="170" width="80" height="30" rx="6" fill="#f59e0b"/>
+  <text x="320" y="300" text-anchor="middle" fill="#e5e7eb" font-family="Arial" font-size="16">Boîtier ventilé</text>
+</svg>

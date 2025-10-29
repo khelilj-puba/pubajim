@@ -1,0 +1,11 @@
+<svg viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="16" fill="#0b1321"/>
+  <rect x="160" y="60" width="320" height="200" rx="10" fill="#111827" stroke="#334155"/>
+  <circle cx="200" cy="100" r="6" fill="#64748b"/>
+  <circle cx="440" cy="100" r="6" fill="#64748b"/>
+  <circle cx="200" cy="220" r="6" fill="#64748b"/>
+  <circle cx="440" cy="220" r="6" fill="#64748b"/>
+  <rect x="305" y="270" width="30" height="50" fill="#6b7280"/>
+  <rect x="250" y="320" width="140" height="10" fill="#6b7280"/>
+  <text x="320" y="35" text-anchor="middle" fill="#e5e7eb" font-family="Arial" font-size="16">Fixation VESA</text>
+</svg>

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% block title %}PUBAJIM — Votre affichage pub clé en main{% endblock %}
+{% block body %}
+<!-- HERO Accueil -->
+<section class="hero-splash">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker">PUBAJIM • Affichage dynamique</div>
+      <h1 class="hero-headline"><span>Affichez votre entreprise,</span><br><span>partout, simplement.</span></h1>
+
+      <div class="hero-slogan">
+        PUBAJIM, <span>la pub de chez vous partout</span>
+        <div class="hero-line"></div>
+      </div>
+    
+      <p class="hero-sub hero-sub-pill"><span class="pill-bg">Avec PUBAJIM, un Raspberry Pi pilote vos écrans et vos campagnes s’actualisent en un clic — localement ou à distance. Installation rapide, abonnement flexible, et support aux petits oignons.</span></p>
+      <div class="hero-cta">
+        <a href="#tiles" class="btn-gradient">Découvrir PUBAJIM</a>
+        <a href="{{ url_for('product') }}" class="btn-ghost">Commander l’essai 1 mois</a>
+      </div>
+    </div>
+    <div class="center">
+      <img src="{{ url_for('static', filename='hero-home.jpg') }}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='raspberry-diagram.svg') }}';" alt="Illustration PUBAJIM" class="hero-illu real">
+    </div>
+  </div>
+</section>
+
+<section class="container hero">
+  <div>
+    <span class="badge">Nouveau</span>
+    <h1>Mettez vos pubs en vitrine,<br>actualisées en 1 clic.</h1>
+    <p>PUBAJIM, c’est l’écran piloté par un Raspberry Pi et une interface simple. Mettez à jour vos messages localement ou à distance, selon votre formule.</p>
+    <div style="display:flex;gap:12px;margin-top:12px">
+      <a href="{{ url_for('product') }}" class="btn primary">Commander maintenant</a>
+      <a href="{{ url_for('explain') }}" class="btn">Voir comment ça marche</a>
+    </div>
+  </div>
+  <div>
+    <div class="card">
+      <strong>Pourquoi PUBAJIM ?</strong>
+      <ul class="clean">
+        <li>Installation rapide (magasins, résidences, halls, salons…)</li>
+        <li>Mises à jour distantes (ou locales) selon vos besoins</li>
+        <li>Formule achat ou location</li>
+        <li>Support réactif</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="tiles" class="container" style="margin-top:-10px">
+  <div class="tiles">
+    <a class="tile" href="{{ url_for('raspberry') }}">
+      <div class="t-title">Fonctionnement</div>
+      <div class="t-sub">Le matériel et le schéma d’installation.</div>
+      <div class="t-cta">Voir →</div>
+    </a>
+    <a class="tile" href="{{ url_for('ecrans') }}">
+      <div class="t-title">Écrans</div>
+      <div class="t-sub">32/43/55/65” — dimensions & prix.</div>
+      <div class="t-cta">Choisir →</div>
+    </a>
+    <a class="tile" href="{{ url_for('tarifs') }}">
+      <div class="t-title">Tarifs</div>
+      <div class="t-sub">Achat vs Abonnement (+ acompte).</div>
+      <div class="t-cta">Comparer →</div>
+    </a>
+    <a class="tile" href="{{ url_for('product') }}">
+      <div class="t-title">Commander</div>
+      <div class="t-sub">Essai 1 mois — 59,99 €.</div>
+      <div class="t-cta">Payer →</div>
+    </a>
+    <a class="tile" href="{{ url_for('contact', subject='Devis rapide', message='Bonjour, je souhaite un devis pour un écran en vitrine.') }}">
+      <div class="t-title">Contact</div>
+      <div class="t-sub">Devis & accompagnement.</div>
+      <div class="t-cta">Écrire →</div>
+    </a>
+  </div>
+</section>
+
+
+<section class="section container">
+  <h2>Fonctionnalités clés</h2>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>Programmation facile</h3>
+      <p>Planifiez vos campagnes : promo du matin, info du soir, etc.</p>
+    </div>
+    <div class="card">
+      <h3>Connexion fiable</h3>
+      <p>Local ou via VPN (Tailscale) — idéal sites multi-emplacements.</p>
+    </div>
+    <div class="card">
+      <h3>Matériel optimisé</h3>
+      <p>Raspberry Pi discret et robuste, compatible écrans HDMI.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <h2>Ils gagnent en visibilité</h2>
+  <div class="grid grid-3">
+    <div class="card"><strong>Salon de coiffure</strong><br><span class="small">+25% de ventes sur les soins en 1 mois</span></div>
+    <div class="card"><strong>Boulangerie</strong><br><span class="small">Stock écoulé en 3 jours 🎉</span></div>
+    <div class="card"><strong>Résidence</strong><br><span class="small">Infos syndic claires et à jour</span></div>
+  </div>
+</section>
+{% endblock %}

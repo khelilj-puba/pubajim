@@ -1,0 +1,5 @@
+nohup: ignoring input
+  File "/home/khelilj/puba_full/app.py", line 80
+    @app.route('/')                def home():        return render_template('home.html')
+                                   ^^^
+SyntaxError: invalid syntax

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Créer un compte — PUBAJIM{% endblock %}
+{% block body %}
+<div class="container section" style="max-width:680px">
+  <h1>Créer un compte</h1>
+  <form method="post" class="card" style="display:grid;gap:10px">
+    <input type="email" name="email" placeholder="Votre e-mail" required style="padding:10px;border:1px solid #e5e7eb;border-radius:8px">
+    <input type="password" name="password" placeholder="Mot de passe" required style="padding:10px;border:1px solid #e5e7eb;border-radius:8px">
+    <button class="btn primary" type="submit">Créer mon compte</button>
+  </form>
+  <p class="small" style="margin-top:8px">Déjà inscrit ? <a href="{{ url_for('login') }}">Se connecter</a></p>
+</div>
+{% endblock %}
