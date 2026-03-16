@@ -1,0 +1,612 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PUBAJIM - Solutions numériques pour commerçants</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef2f7;
+      color: #0f172a;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 28px 70px;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1e90ff, #1473e6);
+      color: white;
+      font-weight: 900;
+      font-size: 20px;
+      padding: 18px 24px;
+      border-radius: 22px;
+      margin-bottom: 36px;
+      box-shadow: 0 10px 30px rgba(30, 144, 255, 0.22);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 78px;
+      line-height: 0.98;
+      margin: 0 0 26px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+    .hero h1 .accent {
+      color: #1e80f0;
+    }
+    .hero p {
+      font-size: 22px;
+      line-height: 1.65;
+      color: #3c5674;
+      max-width: 780px;
+      margin: 0 0 30px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 18px;
+      padding: 15px 22px;
+      font-size: 16px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #1e80f0;
+      color: white;
+      border: none;
+      box-shadow: 0 10px 25px rgba(30, 128, 240, 0.22);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #166fd6;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #0f172a;
+      border: 1px solid #c8d2df;
+    }
+    .btn-secondary:hover {
+      background: white;
+    }
+    .hero-card {
+      background: #f8fafc;
+      border: 1px solid #d5dde8;
+      border-radius: 34px;
+      padding: 26px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+    .hero-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .pill {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .pill.active {
+      background: #e5eefb;
+      color: #1e80f0;
+    }
+    .pill.soft {
+      color: #5e7598;
+      background: transparent;
+      padding-right: 0;
+    }
+    .video-demo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      min-height: 470px;
+      background: #020617;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .video-demo video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      background: linear-gradient(to top, rgba(2,6,23,.88), rgba(2,6,23,.18));
+      color: white;
+      pointer-events: none;
+    }
+    .video-label {
+      font-size: 14px;
+      color: #dbeafe;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .video-overlay h3 {
+      margin: 0 0 10px 0;
+      font-size: 44px;
+      line-height: 1.05;
+      font-weight: 900;
+      max-width: 520px;
+    }
+    .video-overlay p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #dbeafe;
+      max-width: 520px;
+    }
+    .section {
+      margin-top: 72px;
+    }
+    .section h2 {
+      font-size: 42px;
+      margin: 0 0 14px;
+      line-height: 1.1;
+    }
+    .section p.lead {
+      margin: 0 0 28px;
+      color: #516882;
+      font-size: 19px;
+      line-height: 1.7;
+      max-width: 920px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid #dbe4ef;
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+    .service-card h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+    }
+    .service-card p {
+      margin: 0 0 16px;
+      color: #526882;
+      line-height: 1.65;
+      font-size: 16px;
+    }
+    .price {
+      display: inline-block;
+      margin-top: 8px;
+      background: #eef6ff;
+      color: #1567cc;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .promo-box {
+      margin-top: 34px;
+      background: linear-gradient(135deg, #0f172a, #1c2942);
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .promo-box h3 {
+      margin: 0 0 10px;
+      font-size: 30px;
+    }
+    .promo-box p {
+      margin: 0;
+      color: #d7e5ff;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .countdown {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 22px;
+      padding: 20px;
+      text-align: center;
+    }
+    .countdown .small {
+      font-size: 14px;
+      color: #c9dbff;
+      margin-bottom: 10px;
+    }
+    .countdown .big {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .devis-box {
+      margin-top: 72px;
+      background: white;
+      border: 1px solid #dbe4ef;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
+    .devis-box h2 {
+      margin: 0 0 10px;
+      font-size: 38px;
+    }
+    .devis-box p {
+      color: #556b84;
+      margin: 0 0 26px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+    label {
+      font-weight: 700;
+      font-size: 14px;
+      color: #24364b;
+    }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #cfd9e5;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 15px;
+      background: #fbfdff;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .estimate {
+      margin-top: 24px;
+      background: #f5f9ff;
+      border: 1px solid #d8e7fb;
+      border-radius: 22px;
+      padding: 22px;
+    }
+    .estimate-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .estimate-line {
+      margin: 6px 0;
+      color: #35506d;
+      line-height: 1.6;
+    }
+    .estimate-price {
+      margin-top: 14px;
+      font-size: 28px;
+      font-weight: 900;
+      color: #0f172a;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      color: #627892;
+      font-size: 15px;
+      padding-bottom: 20px;
+    }
+    @media (max-width: 1050px) {
+      .hero { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .promo-box { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 56px; }
+    }
+    @media (max-width: 720px) {
+      .container { padding: 24px 16px 50px; }
+      .hero h1 { font-size: 44px; letter-spacing: -1px; }
+      .hero p { font-size: 18px; }
+      .form-grid, .contact-row { grid-template-columns: 1fr; }
+      .video-demo { min-height: 360px; }
+      .video-overlay h3 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">PUBAJIM</div>
+
+    <section class="hero">
+      <div>
+        <h1>
+          Des solutions numériques<br>
+          <span class="accent">simples pour</span><br>
+          <span class="accent">commerçants</span>
+        </h1>
+
+        <p>
+          PUBAJIM aide les commerces à moderniser leur communication, diffuser leurs publicités,
+          protéger leurs données et surveiller leur activité avec des solutions claires, efficaces
+          et faciles à gérer.
+        </p>
+
+        <div class="cta-row">
+          <a href="#devis" class="btn btn-primary">Obtenir un devis</a>
+          <a href="#services" class="btn btn-secondary">Voir les offres</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-tabs">
+          <span class="pill active">Offre mise en avant</span>
+          <span class="pill soft">Votre écran travaille pour vous</span>
+        </div>
+
+        <div class="video-demo">
+          <video autoplay muted loop playsinline controls>
+            <source src="../demo.mp4" type="video/mp4">
+          </video>
+
+          <div class="video-overlay">
+            <div class="video-label">Exemple d’affichage dynamique</div>
+            <h3>Votre publicité en direct</h3>
+            <p>
+              Menus, promotions, horaires, messages clients et offres spéciales
+              visibles toute la journée sur écran.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <h2>Des services utiles, concrets et rentables</h2>
+      <p class="lead">
+        Que vous vouliez attirer plus de clients, afficher vos offres en boutique ou proposer
+        de la publicité locale sur écran, PUBAJIM vous aide à mettre en place une solution
+        moderne sans complexité inutile.
+      </p>
+
+      <div class="services">
+        <div class="service-card">
+          <h3>Affichage dynamique</h3>
+          <p>Diffusez vos menus, tarifs, promotions, messages clients, nouveautés et horaires sur un écran moderne et attractif.</p>
+          <div class="price">Installation : 150 à 250 € • Abonnement : 20 à 35 €/mois</div>
+        </div>
+
+        <div class="service-card">
+          <h3>Sauvegarde automatique</h3>
+          <p>Sauvegarde quotidienne du PC caisse ou de l’ordinateur principal avec restauration rapide en cas de souci.</p>
+          <div class="price">Installation : 150 à 250 € • Abonnement : 10 à 20 €/mois</div>
+        </div>
+
+        <div class="service-card">
+          <h3>Monitoring réseau & vidéo</h3>
+          <p>Surveillance de la connexion, du matériel, des postes ou des caméras locales pour être alerté plus vite en cas de problème.</p>
+          <div class="price">Option réseau : 5 à 10 €/mois • Vidéo : 120 à 180 € + 5 à 10 €/mois</div>
+        </div>
+      </div>
+
+      <div class="promo-box">
+        <div>
+          <h3>Offre exceptionnelle de lancement</h3>
+          <p>Pendant seulement 3 semaines, profitez de <strong>25 % de remise</strong> sur les offres PUBAJIM pour lancer votre communication locale ou votre affichage dynamique.</p>
+        </div>
+        <div class="countdown">
+          <div class="small">Fin de l’offre dans</div>
+          <div class="big" id="countdown">Chargement...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="devis-box" id="devis">
+      <h2>Demandez votre devis en quelques clics</h2>
+      <p>Le client choisit ses options, voit une estimation instantanée, puis envoie sa demande directement par mail.</p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nom">Nom / Commerce</label>
+          <input type="text" id="nom" placeholder="Ex : Boulangerie du Centre">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Adresse mail</label>
+          <input type="email" id="email" placeholder="Ex : contact@moncommerce.fr">
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service souhaité</label>
+          <select id="service">
+            <option value="affichage">Affichage dynamique</option>
+            <option value="sauvegarde">Sauvegarde automatique</option>
+            <option value="monitoring">Monitoring réseau & vidéo</option>
+            <option value="pub">Publicité locale sur écran</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="duree">Durée choisie</label>
+          <select id="duree">
+            <option value="1">1 mois</option>
+            <option value="3">3 mois</option>
+            <option value="6">6 mois</option>
+            <option value="12">12 mois</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ecrans">Nombre d’écrans / postes</label>
+          <select id="ecrans">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="option">Option complémentaire</label>
+          <select id="option">
+            <option value="aucune">Aucune</option>
+            <option value="maintenance">Maintenance / suivi</option>
+            <option value="creation">Création de contenu</option>
+            <option value="urgence">Intervention prioritaire</option>
+          </select>
+        </div>
+
+        <div class="form-group full">
+          <label for="message">Besoin / précision</label>
+          <textarea id="message" placeholder="Expliquez rapidement votre besoin..."></textarea>
+        </div>
+      </div>
+
+      <div class="estimate">
+        <div class="estimate-title">Estimation automatique</div>
+        <div class="estimate-line" id="detailService">Service : Affichage dynamique</div>
+        <div class="estimate-line" id="detailSetup">Installation estimée : 200 €</div>
+        <div class="estimate-line" id="detailMensuel">Mensuel estimé : 25 €/mois</div>
+        <div class="estimate-line" id="detailRemise">Remise promo : -25 %</div>
+        <div class="estimate-price" id="prixTotal">Total estimatif : 168,75 €</div>
+      </div>
+
+      <div class="contact-row">
+        <a href="#" id="mailBtn" class="btn btn-primary">Recevoir mon devis par mail</a>
+        <a href="https://wa.me/33766209006?text=Bonjour%2C%20je%20souhaite%20obtenir%20un%20devis%20PUBAJIM." class="btn btn-secondary" style="text-align:center;">WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>
+      PUBAJIM — 07 66 20 90 06 — contact_pubajim@mail.fr
+    </footer>
+  </div>
+
+  <script>
+    const promoEndDate = new Date();
+    promoEndDate.setDate(promoEndDate.getDate() + 21);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = promoEndDate.getTime() - now;
+      if (distance <= 0) {
+        document.getElementById("countdown").textContent = "Offre terminée";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      document.getElementById("countdown").textContent = days + "j " + hours + "h " + minutes + "m";
+    }
+
+    function getPricing(service) {
+      if (service === "affichage") return { name: "Affichage dynamique", setup: 200, monthly: 25 };
+      if (service === "sauvegarde") return { name: "Sauvegarde automatique", setup: 180, monthly: 15 };
+      if (service === "monitoring") return { name: "Monitoring réseau & vidéo", setup: 150, monthly: 10 };
+      if (service === "pub") return { name: "Publicité locale sur écran", setup: 90, monthly: 39 };
+      return { name: "Affichage dynamique", setup: 200, monthly: 25 };
+    }
+
+    function getOptionPrice(option) {
+      if (option === "maintenance") return 12;
+      if (option === "creation") return 25;
+      if (option === "urgence") return 18;
+      return 0;
+    }
+
+    function updateEstimate() {
+      const service = document.getElementById("service").value;
+      const duree = parseInt(document.getElementById("duree").value, 10);
+      const ecrans = parseInt(document.getElementById("ecrans").value, 10);
+      const option = document.getElementById("option").value;
+
+      const pricing = getPricing(service);
+      const optionMonthly = getOptionPrice(option);
+      const setup = pricing.setup + ((ecrans - 1) * 40);
+      const mensuel = (pricing.monthly * ecrans) + optionMonthly;
+      const total = setup + (mensuel * duree);
+      const promo = total * 0.25;
+      const totalPromo = total - promo;
+
+      document.getElementById("detailService").textContent = "Service : " + pricing.name;
+      document.getElementById("detailSetup").textContent = "Installation estimée : " + setup.toFixed(2).replace(".", ",") + " €";
+      document.getElementById("detailMensuel").textContent = "Mensuel estimé : " + mensuel.toFixed(2).replace(".", ",") + " €/mois";
+      document.getElementById("detailRemise").textContent = "Remise promo : -" + promo.toFixed(2).replace(".", ",") + " €";
+      document.getElementById("prixTotal").textContent = "Total estimatif : " + totalPromo.toFixed(2).replace(".", ",") + " €";
+
+      const nom = document.getElementById("nom").value || "Non renseigné";
+      const email = document.getElementById("email").value || "Non renseigné";
+      const message = document.getElementById("message").value || "Aucune précision.";
+      const optionLabel = document.getElementById("option").options[document.getElementById("option").selectedIndex].text;
+      const dureeLabel = document.getElementById("duree").options[document.getElementById("duree").selectedIndex].text;
+      const ecransLabel = document.getElementById("ecrans").options[document.getElementById("ecrans").selectedIndex].text;
+
+      const subject = encodeURIComponent("Demande de devis PUBAJIM - " + nom);
+      const body = encodeURIComponent(
+        "Bonjour,\n\n" +
+        "Je souhaite recevoir un devis PUBAJIM.\n\n" +
+        "Nom / Commerce : " + nom + "\n" +
+        "Email : " + email + "\n" +
+        "Service : " + pricing.name + "\n" +
+        "Durée : " + dureeLabel + "\n" +
+        "Nombre d'écrans / postes : " + ecransLabel + "\n" +
+        "Option : " + optionLabel + "\n" +
+        "Installation estimée : " + setup.toFixed(2).replace(".", ",") + " €\n" +
+        "Mensuel estimé : " + mensuel.toFixed(2).replace(".", ",") + " €/mois\n" +
+        "Remise promo : -" + promo.toFixed(2).replace(".", ",") + " €\n" +
+        "Total estimatif : " + totalPromo.toFixed(2).replace(".", ",") + " €\n\n" +
+        "Précision : " + message + "\n"
+      );
+
+      document.getElementById("mailBtn").href = "mailto:contact_pubajim@mail.fr?subject=" + subject + "&body=" + body;
+    }
+
+    document.querySelectorAll("input, select, textarea").forEach(el => {
+      el.addEventListener("input", updateEstimate);
+      el.addEventListener("change", updateEstimate);
+    });
+
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+    updateEstimate();
+  </script>
+</body>
+</html>
