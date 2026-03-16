@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -6,17 +6,20 @@
   <title>PUBAJIM - Solutions numériques pour commerçants</title>
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: #eef2f7;
       color: #0f172a;
     }
+
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 40px 28px 70px;
     }
+
     .logo {
       display: inline-flex;
       align-items: center;
@@ -30,12 +33,14 @@
       margin-bottom: 36px;
       box-shadow: 0 10px 30px rgba(30, 144, 255, 0.22);
     }
+
     .hero {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 36px;
       align-items: center;
     }
+
     .hero h1 {
       font-size: 78px;
       line-height: 0.98;
@@ -43,9 +48,11 @@
       font-weight: 900;
       letter-spacing: -2px;
     }
+
     .hero h1 .accent {
       color: #1e80f0;
     }
+
     .hero p {
       font-size: 22px;
       line-height: 1.65;
@@ -53,12 +60,14 @@
       max-width: 780px;
       margin: 0 0 30px;
     }
+
     .cta-row {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
       margin-top: 16px;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -71,24 +80,29 @@
       transition: 0.2s ease;
       cursor: pointer;
     }
+
     .btn-primary {
       background: #1e80f0;
       color: white;
       border: none;
       box-shadow: 0 10px 25px rgba(30, 128, 240, 0.22);
     }
+
     .btn-primary:hover {
       transform: translateY(-1px);
       background: #166fd6;
     }
+
     .btn-secondary {
       background: transparent;
       color: #0f172a;
       border: 1px solid #c8d2df;
     }
+
     .btn-secondary:hover {
       background: white;
     }
+
     .hero-card {
       background: #f8fafc;
       border: 1px solid #d5dde8;
@@ -96,6 +110,7 @@
       padding: 26px;
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
     }
+
     .hero-tabs {
       display: flex;
       justify-content: space-between;
@@ -104,6 +119,7 @@
       margin-bottom: 16px;
       flex-wrap: wrap;
     }
+
     .pill {
       display: inline-block;
       padding: 12px 18px;
@@ -112,68 +128,136 @@
       font-weight: 800;
       white-space: nowrap;
     }
+
     .pill.active {
       background: #e5eefb;
       color: #1e80f0;
     }
+
     .pill.soft {
       color: #5e7598;
       background: transparent;
       padding-right: 0;
     }
-    .video-demo {
-      position: relative;
-      overflow: hidden;
+
+    .mockup-demo {
       border-radius: 30px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #020617, #0f172a);
       min-height: 470px;
-      background: #020617;
       border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
     }
-    .video-demo video {
-      width: 100%;
+
+    .mockup-screen {
       height: 100%;
-      object-fit: cover;
-      display: block;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
     }
-    .video-overlay {
-      position: absolute;
-      inset: 0;
+
+    .mockup-topbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .mockup-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .mockup-content {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 28px;
-      background: linear-gradient(to top, rgba(2,6,23,.88), rgba(2,6,23,.18));
+      padding: 10px 8px 8px;
       color: white;
-      pointer-events: none;
     }
-    .video-label {
+
+    .mockup-label {
       font-size: 14px;
       color: #dbeafe;
       margin-bottom: 12px;
       font-weight: 700;
     }
-    .video-overlay h3 {
+
+    .mockup-content h3 {
       margin: 0 0 10px 0;
       font-size: 44px;
       line-height: 1.05;
       font-weight: 900;
       max-width: 520px;
     }
-    .video-overlay p {
-      margin: 0;
+
+    .mockup-content p {
+      margin: 0 0 22px 0;
       font-size: 16px;
       line-height: 1.6;
       color: #dbeafe;
       max-width: 520px;
     }
+
+    .mockup-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mock-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      border-radius: 18px;
+      padding: 18px;
+      line-height: 1.35;
+      backdrop-filter: blur(4px);
+      animation: floatCard 4s ease-in-out infinite;
+    }
+
+    .mock-card:nth-child(2) { animation-delay: 0.4s; }
+    .mock-card:nth-child(3) { animation-delay: 0.8s; }
+    .mock-card:nth-child(4) { animation-delay: 1.2s; }
+
+    .mock-card.promo {
+      background: linear-gradient(135deg, #1e80f0, #38bdf8);
+      color: white;
+      border: none;
+    }
+
+    .mock-card-title {
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .mock-card-text {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
     .section {
       margin-top: 72px;
     }
+
     .section h2 {
       font-size: 42px;
       margin: 0 0 14px;
       line-height: 1.1;
     }
+
     .section p.lead {
       margin: 0 0 28px;
       color: #516882;
@@ -181,11 +265,13 @@
       line-height: 1.7;
       max-width: 920px;
     }
+
     .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
+
     .service-card {
       background: white;
       border: 1px solid #dbe4ef;
@@ -193,16 +279,19 @@
       padding: 24px;
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
     }
+
     .service-card h3 {
       margin: 0 0 12px;
       font-size: 24px;
     }
+
     .service-card p {
       margin: 0 0 16px;
       color: #526882;
       line-height: 1.65;
       font-size: 16px;
     }
+
     .price {
       display: inline-block;
       margin-top: 8px;
@@ -213,6 +302,7 @@
       font-size: 14px;
       font-weight: 800;
     }
+
     .promo-box {
       margin-top: 34px;
       background: linear-gradient(135deg, #0f172a, #1c2942);
@@ -224,16 +314,19 @@
       gap: 24px;
       align-items: center;
     }
+
     .promo-box h3 {
       margin: 0 0 10px;
       font-size: 30px;
     }
+
     .promo-box p {
       margin: 0;
       color: #d7e5ff;
       line-height: 1.7;
       font-size: 16px;
     }
+
     .countdown {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.1);
@@ -241,16 +334,19 @@
       padding: 20px;
       text-align: center;
     }
+
     .countdown .small {
       font-size: 14px;
       color: #c9dbff;
       margin-bottom: 10px;
     }
+
     .countdown .big {
       font-size: 30px;
       font-weight: 900;
       letter-spacing: 1px;
     }
+
     .devis-box {
       margin-top: 72px;
       background: white;
@@ -259,34 +355,41 @@
       padding: 30px;
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
     }
+
     .devis-box h2 {
       margin: 0 0 10px;
       font-size: 38px;
     }
+
     .devis-box p {
       color: #556b84;
       margin: 0 0 26px;
       font-size: 17px;
       line-height: 1.7;
     }
+
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
+
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
+
     .form-group.full {
       grid-column: 1 / -1;
     }
+
     label {
       font-weight: 700;
       font-size: 14px;
       color: #24364b;
     }
+
     input, select, textarea {
       width: 100%;
       border: 1px solid #cfd9e5;
@@ -296,10 +399,12 @@
       background: #fbfdff;
       outline: none;
     }
+
     textarea {
       resize: vertical;
       min-height: 110px;
     }
+
     .estimate {
       margin-top: 24px;
       background: #f5f9ff;
@@ -307,28 +412,33 @@
       border-radius: 22px;
       padding: 22px;
     }
+
     .estimate-title {
       font-size: 18px;
       font-weight: 800;
       margin-bottom: 10px;
     }
+
     .estimate-line {
       margin: 6px 0;
       color: #35506d;
       line-height: 1.6;
     }
+
     .estimate-price {
       margin-top: 14px;
       font-size: 28px;
       font-weight: 900;
       color: #0f172a;
     }
+
     .contact-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       margin-top: 18px;
     }
+
     footer {
       margin-top: 80px;
       text-align: center;
@@ -336,19 +446,23 @@
       font-size: 15px;
       padding-bottom: 20px;
     }
+
     @media (max-width: 1050px) {
       .hero { grid-template-columns: 1fr; }
       .services { grid-template-columns: 1fr; }
       .promo-box { grid-template-columns: 1fr; }
       .hero h1 { font-size: 56px; }
     }
+
     @media (max-width: 720px) {
       .container { padding: 24px 16px 50px; }
       .hero h1 { font-size: 44px; letter-spacing: -1px; }
       .hero p { font-size: 18px; }
       .form-grid, .contact-row { grid-template-columns: 1fr; }
-      .video-demo { min-height: 360px; }
-      .video-overlay h3 { font-size: 34px; }
+      .mockup-demo { min-height: 360px; }
+      .mockup-content h3 { font-size: 34px; }
+      .mockup-cards { grid-template-columns: 1fr; }
+      .mock-card-text { font-size: 20px; }
     }
   </style>
 </head>
@@ -382,18 +496,44 @@
           <span class="pill soft">Votre écran travaille pour vous</span>
         </div>
 
-        <div class="video-demo">
-          <video autoplay muted loop playsinline controls>
-            <source src="../demo.mp4" type="video/mp4">
-          </video>
+        <div class="mockup-demo">
+          <div class="mockup-screen">
+            <div class="mockup-topbar">
+              <span class="mockup-dot"></span>
+              <span class="mockup-dot"></span>
+              <span class="mockup-dot"></span>
+            </div>
 
-          <div class="video-overlay">
-            <div class="video-label">Exemple d’affichage dynamique</div>
-            <h3>Votre publicité en direct</h3>
-            <p>
-              Menus, promotions, horaires, messages clients et offres spéciales
-              visibles toute la journée sur écran.
-            </p>
+            <div class="mockup-content">
+              <div class="mockup-label">Exemple d’affichage dynamique</div>
+              <h3>Votre publicité en direct</h3>
+              <p>
+                Menus, promotions, horaires, messages clients et offres spéciales
+                visibles toute la journée sur écran.
+              </p>
+
+              <div class="mockup-cards">
+                <div class="mock-card promo">
+                  <div class="mock-card-title">Promo du jour</div>
+                  <div class="mock-card-text">-20 % cette semaine</div>
+                </div>
+
+                <div class="mock-card">
+                  <div class="mock-card-title">Menu</div>
+                  <div class="mock-card-text">Formule midi<br>14,90 €</div>
+                </div>
+
+                <div class="mock-card">
+                  <div class="mock-card-title">Horaires</div>
+                  <div class="mock-card-text">Ouvert<br>8h à 19h</div>
+                </div>
+
+                <div class="mock-card">
+                  <div class="mock-card-title">Offre spéciale</div>
+                  <div class="mock-card-text">Nouveau service<br>disponible</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
